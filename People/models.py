@@ -18,5 +18,5 @@ class Person (models.Model):
 
     def __unicode__(self):
         head = unicode(self.first_name + " " + self.last_name + ". Duties:\n")
-        duties_string = reduce (lambda x, y: x.__unicode__() + "\n" + y.__unicode__(), self.duties.all())
-        return unicode (head + duties_string)
+        duties_string = reduce(lambda x, y: x.__unicode__() + "\n" + y.__unicode__(), self.duties.all())
+        return unicode(head + duties_string)
