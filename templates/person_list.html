@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>List of all people:</h1>
+    <ol>
+        {% for person in person_list %}
+            <li> {{ person.print_to_html }} </li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
