@@ -23,11 +23,14 @@ class Person (models.Model):
             duties_string = "No duties yet\n"
         return unicode(head + duties_string)
 
+    def print_to_html(self):
+        return self.__unicode__()
+
 
 class Duty (models.Model):
     person = models.ForeignKey(Person)
     duty_type = models.ForeignKey(DutyType)
-    date = models.DateTimeField(auto_now=True)
+    date = models.DateTimeField(auto_now=False)
 
     def __unicode__(self):
         return (unicode(self.date) + ": " + self.person.first_name + " " + self.person.last_name + ", " +
