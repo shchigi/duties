@@ -10,5 +10,25 @@
             <li> {{ person.print_to_html }} </li>
         {% endfor %}
     </ol>
+
+    <h1>People and duties:</h1>
+    <ol>
+        {% for duty_type in duty_types %}
+            <h2><li>Duty: {{ duty_type.name  }}. ({{ duty_type.description }})</li></h2>
+        {% endfor %}
+    </ol>
+
+    <table border="3">
+        {% for person in person_list %}
+            <tr>
+                <td>{{ person.first_name }} {{ person.last_name }}</td>
+                {% for duty in person.duty_list %}
+                    <td>{{ duty.date|date:"d.m.y" }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+
 </body>
 </html>
