@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Дежурства. Покажем всех силачей и позорников.</title>
+</head>
+<body>
+    <h2>Список всех дежурств:</h2>
+    <ol>
+        {% for duty_type in duty_types %}
+            <li>
+                <a href="{% url 'types' duty_type.name %}">{{ duty_type.name }}</a>
+            </li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
