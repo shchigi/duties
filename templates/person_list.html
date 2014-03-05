@@ -21,9 +21,22 @@
             </tr>
         {% endfor %}
     </table>
+    {% if duty_person %}
+        <p>Добавлено дежурство у {{ duty_person.first_name }}</p>
+    {% endif %}
+
     <h3>Ближайший дежурный: {{ looser.first_name }} {{ looser.last_name }}</h3>
-
-
-
+    <div style="border: 1px solid black; display: inline-block; padding-left: 3px">
+        <form action="." autocomplete="on" method="POST" name="add_duty_form">
+            {% csrf_token %}
+            <b>Добавить дежурство у </b>
+            <select name="person">
+                {% for person in person_list %}
+                    <option value="{{ person.pk }}">{{ person.first_name }}</option>
+                {% endfor %}
+            </select>
+            <br/><input type="submit">
+        </form>
+    </div>
 </body>
 </html>

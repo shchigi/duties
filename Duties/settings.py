@@ -1,5 +1,7 @@
 # Django settings for MatchWithFriends project.
 
+import os
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -65,7 +67,9 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
+STATIC_URL = '/duties/static/'
+#os.path.join(os.path.dirname(__file__), 'static/').replace('\\','/')
+print STATIC_URL
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -107,7 +111,7 @@ ROOT_URLCONF = 'Duties.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'Duties.wsgi.application'
 
-import os
+
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/'),)
 
 INSTALLED_APPS = (
